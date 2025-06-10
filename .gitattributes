@@ -1,0 +1,8 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Always perform LF normalization on these files
+*.sql   text
+*.excel text
+*.csv  text
+*.pbix text
