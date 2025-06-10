@@ -1,6 +1,6 @@
 
 # 📊 Donor Portfolio Analytics Dashboard
-A comprehensive interactive dashboard built using SQL + Power BI (online) to track donor engagement, officer performance, and gift value trends. Specifically, This projects illustrates dynamic, end-to-end donor portfolio monitoring dashboard built using **SQL**, **Power BI**, and **Excel** to track fundraising performance, segment donors, and visualize officer engagement.
+A comprehensive interactive dashboard built using SQL + Power BI (online) to track donor engagement, officer performance, and gift value trends. Specifically, the tech stack for the project are **SQL**, **Power BI**, and **Excel** which anlaytically helps to track fundraising performance, segment donors, and visualize officer engagement.
 
 ---
 
@@ -23,6 +23,7 @@ This project simulates and analyzes donor data to help a development team:
 ---
 
 ##### Dynamic Donor Segmentation
+```sql
 SELECT
     CASE
         WHEN TotalGifts > 10000 THEN 'Major Donor'
@@ -32,74 +33,87 @@ SELECT
     COUNT(*) AS DonorCount,
     SUM(TotalGifts) AS TotalAmount
 FROM DonorPortfolio
-GROUP BY Segment;
+GROUP BY Segment; 
 
----
+```
 
 ##### gift over time (time series)
-```
+
+```sql
 SELECT 
     YEAR(LastContactDate) AS Year,
     SUM(TotalGifts) AS AnnualDonations
 FROM donor_db.DonorPortfolio
 WHERE LastContactDate IS NOT NULL
 GROUP BY Year
-ORDER BY Year; ```
+ORDER BY Year; 
+
+```
 
 ---
 
 ##### average gift by officer
-```
+
+---
+```sql
 SELECT 
   AssignedOfficer,
   AVG(TotalGifts) AS AvgGift
 FROM donor_db.DonorPortfolio
-GROUP BY AssignedOfficer;```
+GROUP BY AssignedOfficer; 
+
+```
 
 ---
 
 ##### stage distribution per officer
 
-```
+```sql
 SELECT 
   AssignedOfficer,
   Stage,
   COUNT(*) AS DonorCount
 FROM donor_db.DonorPortfolio
-GROUP BY AssignedOfficer, Stage;```
+GROUP BY AssignedOfficer, Stage;
+
+```
 
 ---
 
 ##### donor by last contact date
-```
+```sql
 SELECT 
   AssignedOfficer,
   COUNT(*) AS TotalDonors,
   COUNT(CASE WHEN LastContactDate >= CURDATE() - INTERVAL 90 DAY THEN 1 END) AS ContactedLast90,
   ROUND(COUNT(CASE WHEN LastContactDate >= CURDATE() - INTERVAL 90 DAY THEN 1 END)*100.0 / COUNT(*), 2) AS PercentContacted
 FROM donor_db.DonorPortfolio
-GROUP BY AssignedOfficer;```
+GROUP BY AssignedOfficer;
+```
 
 ---
 
 ##### gift_distribution.sql
-```
+```sql
 SELECT 
     Segment,
     AVG(TotalGifts) AS AvgGift,
     PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY TotalGifts) AS MedianGift
 FROM donor_db.DonorPortfolio
-GROUP BY Segment```
+GROUP BY Segment
+```
 
 ---
 
-```SELECT 
+```sql
+SELECT 
   AssignedOfficer,
   COUNT(*) AS TotalDonors,
   COUNT(CASE WHEN LastContactDate >= CURDATE() - INTERVAL 90 DAY THEN 1 END) AS ContactedLast90,
   ROUND(COUNT(CASE WHEN LastContactDate >= CURDATE() - INTERVAL 90 DAY THEN 1 END)*100.0 / COUNT(*), 2) AS PercentContacted
 FROM donor_db.DonorPortfolio
-GROUP BY AssignedOfficer;```
+GROUP BY AssignedOfficer; 
+```
 
 ---
 
