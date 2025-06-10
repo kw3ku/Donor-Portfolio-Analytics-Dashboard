@@ -1,5 +1,7 @@
 
 # 📊 Donor Portfolio Analytics Dashboard
+
+![Dashboard Preview](screenshots/Donor_segmentation_summary.png)
 A comprehensive interactive dashboard built using SQL + Power BI (online) to track donor engagement, officer performance, and gift value trends. Specifically, the tech stack for the project are **SQL**, **Power BI**, and **Excel** which anlaytically helps to track fundraising performance, segment donors, and visualize officer engagement.
 
 ---
@@ -145,17 +147,17 @@ Simulated donor portfolio includes:
 
 > Replace these with your dashboard screenshots
 
-- ![Annual Trends](screenshots/screenshots/Annual_Giving_Trend.png)
-- ![Officer KPI](screenshots/screenshots/Avg_gift_byOfficer.png)
-- ![Donor Segmentation](screenshots/screenshots/Donor_segmentation_summary.png)
+- ![Annual Trends](screenshots/Annual_Giving_Trend.png)
+- ![Officer KPI](screenshots/Avg_gift_byOfficer.png)
+- ![Donor Segmentation](screenshots/Donor_segmentation_summary.png)
 - ![Stage Distribution](screenshots/screenshots/Donors_contacted_90days.png)
-- ![Total Gifts by Donors](screenshots/screenshots/Total_gifts_by_Donors.png)
+- ![Total Gifts by Donors](screenshots/Total_gifts_by_Donors.png)
 
 ---
 
 ## 📁 Folder Structure
 
-```
+
 Portfolio-Health-Dashboard/
 ├── donor_portfolios.csv
 ├── power_bi/*all.pbix files
@@ -170,7 +172,7 @@ Portfolio-Health-Dashboard/
 │   ├── Donors_contacted_90days.png
 |   |── Total_gifts_by_Donors.png
 │   └── ![annual_trend.png](screenshots/Annual_Giving_Trend.png)
-```
+
 
 ---
 
